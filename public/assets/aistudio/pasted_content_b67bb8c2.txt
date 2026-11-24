@@ -1,0 +1,530 @@
+# Project Title: AI College Study Assistant Using LLM
+
+## 1. Project Overview
+
+Develop a complete, modern, and user-friendly web application called **AI College Study Assistant**. This application helps college students understand difficult subjects, prepare for examinations, summarize PDF notes, and practice multiple-choice questions (MCQs) using Artificial Intelligence and a Large Language Model (LLM).
+
+The application should work like a personal AI tutor. Students can ask questions in natural language, upload their study materials in PDF format, and receive answers based on the uploaded documents.
+
+The application must be fully functional, not just a static UI design.
+
+## 2. Technologies to Use
+
+Use the following technologies:
+
+**Frontend:**
+
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap or custom responsive CSS
+
+**Backend:**
+
+* Python
+* Flask
+
+**AI and LLM:**
+
+* An LLM API, such as the Google Gemini API, for answering questions and generating study materials.
+* Use environment variables to store API keys securely.
+
+**PDF Processing:**
+
+* PyMuPDF or PyPDF for extracting text from PDF documents.
+
+**Additional Technologies:**
+
+* SQLite for storing user accounts and study history.
+* Python dotenv for environment variable management.
+
+Choose compatible library versions and provide a requirements.txt file.
+
+## 3. Main Features
+
+### Feature 1: AI Chatbot
+
+Create an AI chatbot that allows students to ask questions about their subjects.
+
+Requirements:
+
+* Students can enter questions in a chat interface.
+* The AI should provide accurate and easy-to-understand explanations.
+* Use simple English suitable for college students.
+* Allow follow-up questions.
+* Display responses in a readable format.
+* Include a loading animation while generating answers.
+* Provide a clear chat history button.
+* Display an appropriate error message if the AI service is unavailable.
+
+Example:
+
+Student: What is machine learning?
+
+AI Assistant: Machine learning is a branch of artificial intelligence that enables computers to learn patterns from data and make predictions without being explicitly programmed for every situation.
+
+The chatbot should also support questions related to uploaded PDF notes.
+
+### Feature 2: Upload PDF Study Notes
+
+Create a PDF upload feature.
+
+Requirements:
+
+* Students can upload PDF notes from their computers.
+* Display the uploaded PDF filename.
+* Extract readable text from the PDF.
+* Show the extracted document content or a preview.
+* Allow students to ask questions about the uploaded notes.
+* Support multiple PDFs where practical.
+* Validate file types and file sizes.
+* Display useful messages if a PDF is empty, scanned, corrupted, or unreadable.
+
+Use PyMuPDF or PyPDF to extract text.
+
+For scanned PDFs, display a clear message that OCR may be required.
+
+### Feature 3: PDF Chapter Summarizer
+
+Create a feature that automatically summarizes uploaded study materials.
+
+Requirements:
+
+* Provide a button called "Summarize My Notes".
+* Generate a short summary of the uploaded content.
+* Generate a detailed summary when requested.
+* Identify important concepts and definitions.
+* Highlight key points for examination preparation.
+* Organize the summary using headings and bullet points.
+* Allow students to copy the summary.
+
+Provide three summary options:
+
+1. Quick Summary
+2. Detailed Summary
+3. Exam Preparation Notes
+
+For long documents, process the text in manageable sections and combine the results into a final summary.
+
+### Feature 4: MCQ Generator
+
+Create an AI-powered multiple-choice question generator.
+
+Requirements:
+
+* Generate questions from uploaded PDF notes.
+* Allow students to choose the number of questions.
+* Provide difficulty levels: Easy, Medium, and Hard.
+* Each question must have four options.
+* Only one option should be correct unless the question explicitly states otherwise.
+* Display the correct answer and a short explanation after submission.
+* Calculate the student's score.
+* Display the total correct and incorrect answers.
+* Provide a "Try Again" button.
+
+Example:
+
+Question: Which language is commonly used for AI development?
+
+A. HTML
+B. Python
+C. CSS
+D. SQL
+
+Correct Answer: B. Python
+
+Explanation: Python is widely used for AI development because it offers libraries and frameworks for machine learning, data processing, and deep learning.
+
+Generate questions from the available study material whenever possible.
+
+### Feature 5: Question and Answer Generator
+
+Create a feature that generates important questions and answers from uploaded PDF notes.
+
+Requirements:
+
+* Generate short-answer questions.
+* Generate long-answer questions.
+* Generate important examination questions.
+* Provide answers based on the uploaded content.
+* Allow students to select the number of questions.
+* Organize questions by topic or chapter when possible.
+* Allow students to copy questions and answers.
+
+Include the following options:
+
+* Important Questions
+* Short Questions and Answers
+* Long Questions and Answers
+* Viva Questions
+* Previous-Exam-Style Practice Questions
+
+Do not claim that generated questions will definitely appear in an actual examination.
+
+### Feature 6: Explain Difficult Topics
+
+Create a feature that explains complicated concepts in simple English.
+
+Requirements:
+
+* Students can enter any topic or select text from their study materials.
+* Explain the topic in simple English.
+* Provide definitions and examples.
+* Break complicated concepts into smaller steps.
+* Include real-life examples where appropriate.
+* Provide a short revision summary at the end.
+* Allow students to request an even simpler explanation.
+
+Include explanation modes:
+
+1. Explain Like a Beginner
+2. Step-by-Step Explanation
+3. Explain with Examples
+4. Quick Revision
+
+### Feature 7: Study Dashboard
+
+Create an attractive dashboard showing:
+
+* Welcome message.
+* AI Chatbot.
+* Upload PDF Notes.
+* Summarize Notes.
+* Generate MCQs.
+* Generate Questions and Answers.
+* Explain Difficult Topics.
+* Recent study activity.
+* Number of quizzes completed.
+* Latest quiz scores.
+
+Use cards with clear icons and buttons.
+
+Only display statistics that are actually stored or calculated by the application.
+
+### Feature 8: User Authentication
+
+Implement a simple registration and login system.
+
+Requirements:
+
+* Student registration.
+* Student login.
+* Logout functionality.
+* Secure password hashing.
+* Session management.
+* Each student should have access only to their own saved history and documents.
+
+Use SQLite to store user information and study history.
+
+Do not store passwords in plain text.
+
+### Feature 9: Study History
+
+Allow students to view their recent activities.
+
+Store appropriate information, such as:
+
+* Questions asked.
+* Summaries generated.
+* Quiz scores.
+* Recent study sessions.
+
+Provide an option to clear saved study history.
+
+Keep document access restricted to the appropriate user and handle uploaded files securely.
+
+## 4. LLM Integration
+
+Integrate a real LLM API into the Flask backend.
+
+The AI should follow these rules:
+
+1. Answer questions using clear, simple English.
+2. Prefer information from the student's uploaded notes when the question concerns those notes.
+3. Do not invent information that is not present in the uploaded material.
+4. If the answer cannot be found in the uploaded document, clearly state that the document does not contain enough information.
+5. When appropriate, distinguish between information taken from the document and additional general knowledge.
+6. Generate educational explanations, summaries, MCQs, and question-answer sets.
+7. Maintain the context of the current conversation for relevant follow-up questions.
+8. Avoid unnecessarily complicated technical language.
+9. Do not claim that a generated answer is guaranteed to be correct.
+10. Handle API failures and rate limits gracefully.
+
+For a more advanced version, implement Retrieval-Augmented Generation (RAG).
+
+RAG should:
+
+* Extract text from uploaded PDFs.
+* Split long documents into smaller chunks.
+* Convert chunks into embeddings.
+* Store embeddings in a suitable vector database, such as FAISS or ChromaDB.
+* Retrieve the most relevant chunks when a student asks a question.
+* Provide the retrieved content to the LLM as context.
+* Generate answers grounded in the retrieved content.
+* Show relevant page numbers or document references when available.
+
+Keep the basic application functional even if the advanced RAG feature is not implemented initially.
+
+## 5. Website Design
+
+Create a professional, modern, and attractive user interface.
+
+Design requirements:
+
+* Use a clean academic theme.
+* Use a white or light background with blue and purple accents.
+* Create a responsive layout for desktop, tablet, and mobile devices.
+* Use a sidebar or navigation bar.
+* Add attractive dashboard cards.
+* Use consistent fonts, spacing, and icons.
+* Include smooth but subtle animations.
+* Make buttons easy to identify.
+* Use readable typography.
+* Add loading indicators for AI responses.
+* Display success and error messages clearly.
+* Provide empty states when no documents or history exist.
+
+The design should look like a real AI-powered educational SaaS application, not a basic college assignment webpage.
+
+## 6. Required Pages
+
+Create the following pages:
+
+1. Landing Page
+2. Student Registration Page
+3. Student Login Page
+4. Student Dashboard
+5. AI Chatbot Page
+6. PDF Upload Page
+7. PDF Summary Page
+8. MCQ Quiz Page
+9. Question and Answer Generator Page
+10. Topic Explanation Page
+11. Study History Page
+12. Profile and Settings Page
+
+Ensure navigation works correctly between all pages.
+
+## 7. Suggested Project Structure
+
+Create the project using the following folder structure:
+
+AI-College-Study-Assistant/
+│
+├── app.py
+├── config.py
+├── requirements.txt
+├── .env
+├── .env.example
+├── README.md
+│
+├── models/
+│   └── database.py
+│
+├── services/
+│   ├── llm_service.py
+│   ├── pdf_service.py
+│   ├── summary_service.py
+│   ├── quiz_service.py
+│   └── rag_service.py
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── chatbot.html
+│   ├── upload.html
+│   ├── summary.html
+│   ├── quiz.html
+│   ├── questions.html
+│   ├── explain.html
+│   ├── history.html
+│   └── settings.html
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── chatbot.js
+│   │   └── quiz.js
+│   └── images/
+│
+├── uploads/
+│
+└── instance/
+└── study_assistant.db
+
+You may improve this structure if necessary, but keep the code modular and easy to understand.
+
+Do not commit real API keys, passwords, or private uploaded documents to version control. Include a .gitignore file.
+
+## 8. Backend Requirements
+
+Use Flask to implement the application.
+
+Create appropriate routes for:
+
+* Home page.
+* User registration.
+* User login.
+* User logout.
+* Dashboard.
+* Chatbot requests.
+* PDF uploads.
+* PDF summaries.
+* MCQ generation.
+* Quiz submissions.
+* Question and answer generation.
+* Topic explanations.
+* Study history.
+* User settings.
+
+Requirements:
+
+* Validate all user inputs.
+* Handle errors properly.
+* Use secure session management.
+* Protect authenticated routes.
+* Restrict uploaded files to allowed formats.
+* Set reasonable upload size limits.
+* Use safe file handling.
+* Avoid exposing API keys to frontend JavaScript.
+* Do not trust model-generated answers or quiz scores without appropriate validation.
+* Keep AI API calls on the backend.
+
+## 9. Functional Requirements
+
+The application must work from beginning to end.
+
+Expected workflow:
+
+Step 1: The student opens the website.
+
+Step 2: The student creates an account or logs in.
+
+Step 3: The dashboard opens.
+
+Step 4: The student uploads a PDF containing study notes.
+
+Step 5: The application extracts the PDF text.
+
+Step 6: The student selects a feature, such as summarization, MCQ generation, or asking questions.
+
+Step 7: The Flask backend sends the relevant content to the configured LLM.
+
+Step 8: The AI generates the requested result.
+
+Step 9: The result appears on the webpage.
+
+Step 10: The student can copy the answer, take a quiz, or continue studying.
+
+Step 11: The application saves appropriate study history and quiz scores.
+
+## 10. Security and Reliability
+
+Implement the following protections:
+
+* Keep API keys in environment variables.
+* Hash passwords securely.
+* Validate and sanitize inputs.
+* Validate PDF uploads.
+* Prevent unauthorized access to another student's files.
+* Limit upload sizes and AI request sizes.
+* Handle empty documents and API errors.
+* Avoid displaying sensitive server errors to users.
+* Protect against common web vulnerabilities.
+* Do not expose uploaded documents publicly.
+* Provide a safe logout function.
+
+## 11. Setup Instructions
+
+Create a README.md file containing complete setup instructions.
+
+Explain how to:
+
+1. Install Python.
+2. Open the project in Visual Studio Code.
+3. Create a virtual environment.
+4. Install the required libraries.
+5. Obtain an API key for the selected LLM provider.
+6. Configure the .env file.
+7. Initialize the SQLite database.
+8. Start the Flask application.
+9. Open the application in a browser.
+10. Troubleshoot common errors.
+
+Provide Windows PowerShell commands.
+
+Example:
+
+python -m venv venv
+
+.\venv\Scripts\Activate.ps1
+
+pip install -r requirements.txt
+
+python app.py
+
+Use a suitable Flask development server configuration for local development. Explain that a production deployment requires a production-ready server and appropriate security configuration.
+
+Include an .env.example file containing placeholder values rather than real secrets.
+
+## 12. Final Deliverables
+
+Generate the following:
+
+1. Complete Python backend code.
+2. All required HTML templates.
+3. Complete CSS styling.
+4. JavaScript functionality.
+5. Working LLM API integration.
+6. PDF text extraction functionality.
+7. Functional summarization and MCQ generation.
+8. Question and answer generation.
+9. SQLite database setup.
+10. Secure registration and login.
+11. requirements.txt.
+12. .env.example.
+13. .gitignore.
+14. README.md with setup instructions.
+
+Do not provide only sample snippets or pseudocode.
+
+Generate complete, compatible code for every required file. Ensure that imports, routes, templates, and JavaScript endpoints match one another.
+
+If the entire application cannot be generated at once, develop it in phases while keeping all files compatible.
+
+## 13. Testing Requirements
+
+Test the following scenarios:
+
+* Registering a new student.
+* Logging in and logging out.
+* Uploading a valid PDF.
+* Handling an invalid file.
+* Summarizing PDF notes.
+* Asking questions about uploaded notes.
+* Generating MCQs.
+* Submitting a quiz and calculating its score.
+* Generating short and long questions with answers.
+* Explaining a difficult topic.
+* Saving and viewing study history.
+* Handling a missing or invalid API key.
+* Handling LLM API failures.
+* Preventing unauthorized document access.
+* Using the website on desktop and mobile screens.
+
+Fix errors before considering the project complete.
+
+## Final Instruction
+
+Build this project as a complete, functional, beginner-friendly AI College Study Assistant using Python, Flask, an LLM API, PDF processing, HTML, CSS, JavaScript, and SQLite.
+
+Prioritize working features, simple and maintainable code, attractive UI design, and reliable AI answers grounded in uploaded study materials.
+
+Start by creating the project structure and implementing the core features. Then add authentication, study history, and advanced RAG functionality.
+
+Explain the purpose of each major file and provide clear instructions for running the project in Visual Studio Code on Windows.

@@ -1,0 +1,6 @@
+{
+  "name": "AI College Study Assistant",
+  "description": "An AI-powered college study assistant for PDF note analysis, RAG-grounded tutoring, summarization, MCQ quizzes, Q&A generation, and simplified topic explanations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
